@@ -106,7 +106,8 @@ pip install -r requirements.txt
 
 ### 4. Download & Configure Models
 ```bash
-ollama run ollama3.2
+ollama run llama3.2
+ollama run gemma3:27b-it-qat
 ```
 
 ### 5. Usage
