@@ -35,6 +35,7 @@ TikTok uploading requires authenticated cookies:
 ### Run All Together
 - Simply run the 'run_pipeline.sh' and it will run all files needed, it is recomended to run 'main.py' first before doing this as you may be asked to upload certain details for the first time by the TikTok Uploader.
 - Outputs will be stored into a folder called 'error', file names are **Year Month Day Time**.
+- I have it scheduled to run on my home server in a linux container to run multiple times a day via Cron Job so it is all automated.
 
 ---
 
