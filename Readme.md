@@ -6,6 +6,7 @@ This is a customized fork of the original `video-creator` project, enhanced with
 - 🎵 **Custom background music** to avoid copyright strikes
 - 🧩 Minor adjustments to better suit personal workflow
 - 🤖 AI video **description and Title** genorator
+- Better LLM for content Generation along with a MUCH better sounding TTS for audio
 
 > ⚠️ Note: `requirements.txt` may be incomplete or broken. I recommend using it to install most dependencies and manually installing any that fail. I used Python 3.10.
 
