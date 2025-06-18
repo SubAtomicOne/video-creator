@@ -38,17 +38,18 @@ DEFAULT_TOPICS = [
     "an ancient story about a clever king or warrior",
     "a strange or funny fact from world history",
     "a scientific discovery that changed human life",
-    "a breakthrough in medical science that saved millions",
     "a dramatic moment from World War 1 or World War 2",
     "a surprising origin of a modern invention",
     "a fun random fact that will make people smile",
-    # "a tech innovation that shaped the digital world",
-    # "a programming tip that can improve your workflow",
-    # "best practices for clean and maintainable code",
-    # "essential software architecture techniques every developer should know",
-    # "how to build scalable and efficient software systems",
-    # "tips for parents on supporting children's learning at home",
-    # "how to motivate students for effective study habits",
+    "a tech innovation that shaped the digital world",
+    "a quick brain teaser that stumps 90% of people",
+    "the unbelievable true story behind a famous invention",
+    "a bizarre medical experiment that actually worked",
+    "a mind-blowing space discovery you’ve probably never heard of",
+    "the odd reason behind a major world holiday",
+    "how ancient engineers built structures that still stand today",
+    "3 Rapid Life Hacks You Wish You Knew Sooner",
+
 ]
 
 
@@ -94,11 +95,25 @@ def create_subtitle(audio_filepath: str) -> List:
     return subtitle_model.generate_subtitle(audio_filepath)
 
 
+def get_descrip(content: str) -> str:
+    text_model = TextModel()
+    return text_model.generate_video_description(content)
+
+
+
+def get_title(content: str) -> str:
+    text_model = TextModel()
+    return text_model.generate_video_title(content)
+
+
+
 def create_video(
     audio_path: str,
     image_folder: str,
     subtitle: Optional[List],
     bgm_path: Optional[str],
+    description: Optional[str],
+    title: Optional[str],
 ):
     video_path = f"{STORAGE}/video.mp4"
     video_model = VideoModel(audio_path)
@@ -107,6 +122,14 @@ def create_video(
     if subtitle:
         video_model.attach_subtitle(subtitle)
     video_model.generate_video(video_path)
+    if description:
+        desc_path = f"{STORAGE}/description.txt"
+        with open(desc_path, "w") as f:
+            f.write(description)
+    if title:
+        title_path = f"{STORAGE}/title.txt"
+        with open(title_path, "w") as f:
+            f.write(title)
 
 
 def main():
@@ -118,13 +141,20 @@ def main():
 
     images_folder = create_images(image_prompts)
 
+
+    
+    description = get_descrip(content)
+    title = get_title(content)
+
+
     create_video(
         audio_path=audio_path,
         image_folder=images_folder,
         subtitle=subtitle,
         bgm_path="bgms/classic.mp3",
+        description=description,
+        title=title,
     )
-
 
 # Sample
 
