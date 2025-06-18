@@ -48,7 +48,7 @@ try:
     upload_tiktok(
         video=video_path,
         description=video_title,
-        accountname='redditcampfirestories'
+        accountname='ENTER_YOUR_NAME_HERE(Also need to have cookies)'
     )
 except Exception as e:
     print(f"[TikTok Upload Error] {e}")
