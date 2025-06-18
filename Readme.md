@@ -1,17 +1,51 @@
-# This is a fork with Features that I wanted such as autouploading to TikTok and YouTube!
-I have not updated the requirments.txt as it was broken for me and I had to manually install all of them so I would try to use the requirments.txt to install the bulk and then add the rest of the files.
+# Forked Video Creator
 
-You need to set up a google oauth api for the auto upload to youtube, plenty of instructions online. With that, you will need to create a few authorization files such as upload_video.py-oauth2.json and client_secrets.json. 
+This is a customized fork of the original `video-creator` project, enhanced with features such as:
 
-Also, I changed the background music as it was flagged for copyright on one of my videos.
+- ✅ **Automatic uploading to TikTok and YouTube Shorts**
+- 🎵 **Custom background music** to avoid copyright strikes
+- 🧩 Minor adjustments to better suit personal workflow
+- 🤖 AI video **description and Title** genorator
 
-For the TikTok api, use the docs to help, but you will need to create a json file with your cookies, I used a Chrome extension called Cookie-Editor to get mine.
+> ⚠️ Note: `requirements.txt` may be incomplete or broken. I recommend using it to install most dependencies and manually installing any that fail. I used Python 3.10.
 
-Below is the normal documentation from the original fork.
+---
 
-Example videos can be found on my YouTube page or TikTok Page.
-https://www.youtube.com/@RedditCampfireStories/shorts
-https://www.tiktok.com/@redditcampfirestories
+## 🔐 Setup Overview
+
+### YouTube Auto Upload (Google OAuth2)
+To enable automatic YouTube uploads, you must configure Google OAuth:
+
+1. Create a **Google Cloud Project** and enable the **YouTube Data API v3**.
+2. Create an OAuth 2.0 Client and download:
+   - `client_secrets.json`
+   - After first-time auth: `upload_video.py-oauth2.json`
+3. Refer to Google's [OAuth setup docs](https://developers.google.com/youtube/registering_an_application) for detailed instructions.
+
+### TikTok Auto Upload
+TikTok uploading requires authenticated cookies:
+
+1. Install the **Cookie-Editor** Chrome extension.
+2. Log in to TikTok via browser.
+3. Export your session cookies as a `.json` file (e.g., `tiktok_cookies.json`).
+4. Follow the TikTok API docs for further help if needed.
+
+
+### Run All Together
+- Simply run the 'run_pipeline.sh' and it will run all files needed, it is recomended to run 'main.py' first before doing this as you may be asked to upload certain details for the first time by the TikTok Uploader.
+- Outputs will be stored into a folder called 'error', file names are **Year Month Day Time**.
+
+---
+
+## 🎬 Example Content
+
+See sample videos on:
+
+- [YouTube Shorts – @RedditCampfireStories](https://www.youtube.com/@RedditCampfireStories/shorts)  
+- [TikTok – @redditcampfirestories](https://www.tiktok.com/@redditcampfirestories)
+
+---
+
 
 
 
